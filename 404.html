@@ -1,20 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <title>Redirecting...</title>
-  <script>
-    // GitHub Pages SPA fallback
-    const repo = "/Student-Platform"; // your repo name
-    const path = window.location.pathname;
-
-    // Redirect all unknown paths to index.html preserving the path
-    if (!path.endsWith(".html")) {
-      window.location.replace(repo + "/index.html?" + path);
-    }
-  </script>
-</head>
-<body>
-  <p>Redirecting…</p>
-</body>
+  <head>
+    <meta http-equiv="refresh" content="0; URL=./index.html" />
+  </head>
+  <body>
+    <p>Redirecting...</p>
+  </body>
 </html>
