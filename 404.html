@@ -4,12 +4,17 @@
   <meta charset="UTF-8">
   <title>Redirecting...</title>
   <script>
-    const repo = "/Student-Platform"; 
+    // GitHub Pages SPA fallback
+    const repo = "/Student-Platform"; // your repo name
     const path = window.location.pathname;
-    window.location.replace(repo + "/index.html?" + path);
+
+    // Redirect all unknown paths to index.html preserving the path
+    if (!path.endsWith(".html")) {
+      window.location.replace(repo + "/index.html?" + path);
+    }
   </script>
 </head>
 <body>
-  <p>Redirecting...</p>
+  <p>Redirecting…</p>
 </body>
 </html>
