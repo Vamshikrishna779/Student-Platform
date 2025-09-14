@@ -1,14 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="src/assets/logo.png" />
+    <meta charset="UTF--8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>StudiQ</title>
-    <script type="module" crossorigin src="/Student-Platform/assets/index-CePPdJis.js"></script>
-    <link rel="stylesheet" crossorigin href="/Student-Platform/assets/index-CZa7JaKE.css">
-  </head>
-  <body>
+    <title>NexusLearn AI Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="manifest" href="/Student-Platform/manifest.json" />
+    <meta name="theme-color" content="#14B8A6" />
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'gray-900': '#111827',
+              'gray-800': '#1F2937',
+              'gray-300': '#D1D5DB',
+              'gray-50': '#F9FAFB',
+              'teal-600': '#0D9488',
+              'teal-500': '#14B8A6',
+            },
+          },
+        },
+      }
+    </script>
+
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.19.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.544.0",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.1"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/Student-Platform/assets/index-aaWvpeoY.js"></script>
+  <link rel="stylesheet" crossorigin href="/Student-Platform/assets/index-B_Uyatqx.css">
+</head>
+  <body class="bg-gray-100 dark:bg-gray-900">
     <div id="root"></div>
-  </body>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').then(registration => {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          }, err => {
+            console.log('ServiceWorker registration failed: ', err);
+          });
+        });
+      }
+    </script>
+</body>
 </html>
