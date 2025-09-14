@@ -1,9 +1,155 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0; URL=./index.html" />
-  </head>
-  <body>
-    <p>Redirecting...</p>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Redirect Example</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        
+        .code-block {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: left;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+        }
+        
+        .highlight {
+            color: #ffcc00;
+            font-weight: bold;
+        }
+        
+        .button {
+            background: #ffcc00;
+            color: #1a1a2e;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        
+        .button:hover {
+            background: #ffdd33;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .explanation {
+            margin-top: 40px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Smart Redirect Solution</h1>
+        <p>This page demonstrates how to prevent the automatic addition of "index.html" to the URL when refreshing.</p>
+        
+        <div class="code-block">
+            <code>
+// JavaScript solution to prevent unwanted redirects on refresh<br>
+if (window.location.pathname.endsWith('index.html')) {<br>
+&nbsp;&nbsp;// Replace the URL without reloading the page<br>
+&nbsp;&nbsp;window.history.replaceState({}, '', window.location.pathname.replace('index.html', ''));<br>
+}
+            </code>
+        </div>
+        
+        <p class="highlight">Try refreshing this page - notice the URL stays clean!</p>
+        
+        <button class="button" onclick="simulateRedirect()">Simulate Redirect</button>
+        
+        <div class="explanation">
+            <h2>How It Works</h2>
+            <p>The solution uses JavaScript's <code>history.replaceState()</code> method to clean up the URL after any redirect without causing a page reload.</p>
+            <p>This provides a better user experience by maintaining clean URLs while still allowing the initial redirect functionality.</p>
+        </div>
+    </div>
+
+    <script>
+        // Clean up the URL if it ends with index.html
+        if (window.location.pathname.endsWith('index.html')) {
+            // Replace the URL without reloading the page
+            const cleanPath = window.location.pathname.replace(/index\.html$/, '');
+            window.history.replaceState({}, '', cleanPath);
+        }
+        
+        // Function to simulate the redirect for demonstration purposes
+        function simulateRedirect() {
+            // Temporarily change the URL to include index.html
+            window.history.pushState({}, '', 'index.html');
+            
+            // After a brief moment, clean it up again
+            setTimeout(() => {
+                window.history.replaceState({}, '', window.location.pathname.replace('index.html', ''));
+                alert('Redirect simulated and cleaned up! Check the URL.');
+            }, 1000);
+        }
+    </script>
+</body>
 </html>
