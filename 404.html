@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script>
+      // Get the path from the URL
+      const path = window.location.pathname;
+      const isAdmin = path.includes('/admin');
+      const segment = path.split('/').filter(Boolean).pop();
+      
+      // Redirect to index.html with a hash router compatible URL
+      sessionStorage.redirect = location.href;
+      
+      // Determine the correct redirection path
+      let redirectPath = '/';
+      if (isAdmin) {
+        redirectPath = '/#/admin' + (segment && segment !== 'admin' ? '/' + segment : '');
+      } else if (segment && segment !== 'Student-Platform') {
+        redirectPath = '/#/' + segment;
+      }
+      
+      // Redirect to the main page with hash routing
+      window.location.href = redirectPath;
+    </script>
+  </head>
+  <body>
+    Redirecting...
+  </body>
+</html>
