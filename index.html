@@ -2,12 +2,14 @@
 <html lang="en">
   <head>
 <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/my-pwa-app/vite.svg" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>StudiQ</title>
     <script src="https://cdn.tailwindcss.com"></script>
-<link rel="manifest" href="/Student-Platform/manifest.webmanifest" />
 
     <meta name="theme-color" content="#14B8A6" />
+        <title>StudiQ</title>
+
     <script>
       tailwind.config = {
         darkMode: 'class',
@@ -26,21 +28,11 @@
       }
     </script>
 
-  <script type="module" crossorigin src="/Student-Platform/assets/index-CtvznFpQ.js"></script>
-  <link rel="stylesheet" crossorigin href="/Student-Platform/assets/index-B_Uyatqx.css">
-<link rel="manifest" href="/Student-Platform/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/Student-Platform/registerSW.js"></script></head>
+  <script type="module" crossorigin src="/my-pwa-app/assets/index-CtvznFpQ.js"></script>
+  <link rel="stylesheet" crossorigin href="/my-pwa-app/assets/index-B_Uyatqx.css">
+<link rel="manifest" href="/my-pwa-app/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/my-pwa-app/registerSW.js"></script></head>
   <body class="bg-gray-100 dark:bg-gray-900">
     <div id="root"></div>
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/Student-Platform/sw.js').then(registration => {
-            console.log('ServiceWorker registration successful with scope: ', registration.scope);
-          }, err => {
-            console.log('ServiceWorker registration failed: ', err);
-          });
-        });
-      }
-    </script>
+
 </body>
 </html>
